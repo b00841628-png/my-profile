@@ -1,0 +1,343 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #57b5b7;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+}
+
+
+h1, h2, h3 {
+    font-family: 'Italiana', serif;
+    color: #DFCBB9;
+}
+
+h1, h2 {
+    background-color: #A63C06;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 890;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: 650;
+}
+
+p {
+    font-family: 'Jost', sans-serif;
+    color: #84271F;
+}
+
+a {
+    font-family: 'Jost', sans-serif;
+    text-decoration: none;
+    color: #84271F;
+}
+
+a:hover {
+    color: black;
+}
+
+img {
+    width: 300px;
+    height: auto;
+    max-width: 100%;
+    border-radius: 1px;
+    object-fit: cover;
+}
+
+
+
+header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    background-color: #096d75;
+    padding: 20px 40px;
+}
+
+
+
+header h1 {
+    font-family: 'Italiana', serif;
+    font-size: 40px;
+    font-weight: normal;
+    letter-spacing: -2px;
+
+    color: #e8b197;
+    background-color: transparent;
+    margin: 0;
+}
+
+
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+header nav a {
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #deb6a3;
+
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #5c2914;
+}
+
+
+
+#video {
+    width: 100%;
+    max-width: 100%;
+    height: 80vh;
+
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.categorie {
+    margin: 20px;
+    padding: 30px;
+    background-color: beige;
+}
+
+#introduction {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    gap: 40px;
+    padding: 40px;
+}
+
+#introduction .description {
+    flex: 1;
+}
+
+#introduction img {
+    width: 60%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+#Crochet,
+#Cooking {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+    padding: 40px;
+}
+
+/* Inversion de Cooking */
+
+#Cooking {
+    flex-direction: row-reverse;
+}
+
+/* Descriptions */
+
+#Crochet .description,
+#Cooking .description {
+    flex: 2;
+    min-width: 0;
+}
+
+
+
+#Crochet .images,
+#Cooking .images {
+    flex: 3;
+    min-width: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px;
+    gap: 10px;
+}
+
+
+
+#Crochet img,
+#Cooking img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#Crochet .images img:first-child,
+#Cooking .images img:first-child {
+    grid-row: span 2;
+}
+
+
+#Plants {
+    padding: 40px 0 40px 40px;
+    overflow: hidden;
+}
+
+/* Description de la section */
+
+#Plants .description {
+    margin-bottom: 30px;
+    padding-right: 40px;
+}
+
+#Plants .images {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 20px;
+
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding-bottom: 20px;
+    padding-right: 60px;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    /* Fondu sur le bord droit */
+
+    mask-image: linear-gradient(
+        to right,
+        black 85%,
+        transparent 100%
+    );
+}
+
+#Plants .imag_overlay {
+    position: relative;
+    overflow: hidden;
+
+    flex: 0 0 30%;
+    min-width: 250px;
+    aspect-ratio: 3 / 4;
+
+    scroll-snap-align: start;
+}
+
+#Plants .imag_overlay img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#Plants .overlay {
+    position: absolute;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 20px;
+
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#Plants .overlay h3 {
+    font-size: 28px;
+    color: #DFCBB9;
+    background-color: transparent;
+    margin: 0 0 15px;
+}
+
+
+#Plants .overlay p {
+    font-size: 16px;
+    color: #DFCBB9;
+    margin: 0;
+}
+
+
+#Plants .imag_overlay:hover .overlay {
+    opacity: 1;
+}
+
+#Plants .images::-webkit-scrollbar {
+    height: 5px;
+}
+
+#Plants .images::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#Plants .images::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+
+#links {
+    text-align: center;
+}
+
+#links ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+
+    list-style: none;
+    padding: 0;
+}
+
+#links i {
+    font-size: 40px;
+    color: #a43d0b;
+    transition: transform 0.3s ease;
+}
+
+#links i:hover {
+    transform: scale(1.15);
+}
+
+
+@media (hover: none) {
+    #Plants .overlay {
+        opacity: 1;
+    }
+}
